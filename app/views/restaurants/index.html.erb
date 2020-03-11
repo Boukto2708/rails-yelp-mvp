@@ -1,0 +1,50 @@
+<h1>Restaurants</h1>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-2 offset-1">
+          <p>Name</p>
+      </div>
+      <div class="col-2">
+          <p>Address</p>
+      </div>
+      <div class="col-2">
+          <p>Phone number</p>
+      </div>
+      <div class="col-2">
+          <p>Category</p>
+      </div>
+      <div class="col-2">
+          <p>links</p>
+      </div>
+    </div>
+  </div>
+
+
+    <% @restaurants.each do |restaurant| %>
+      <div class="row">
+        <div class="col-2 offset-1">
+          <p><%= restaurant.name %></p>
+        </div>
+        <div class="col-2">
+          <p><%= restaurant.address %></p>
+        </div>
+        <div class="col-2">
+          <p><%= restaurant.phone_number %></p>
+        </div>
+        <div class="col-2">
+          <p><%= restaurant.category %></p>
+        </div>
+        <div class="col-2">
+          <tr><%= link_to 'Show', restaurant %></tr>
+          <tr><%= link_to 'Edit', edit_restaurant_path(restaurant) %></tr>
+          <tr><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></tr>
+        </div>
+      </div>
+
+    <% end %>
+
+
+<%= link_to 'New Restaurant', new_restaurant_path %>
+
